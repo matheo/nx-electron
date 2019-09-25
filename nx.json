@@ -7,5 +7,12 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "desktop-angular-e2e": {
+      "tags": []
+    },
+    "desktop-angular": {
+      "tags": ["desktop"]
+    }
+  }
 }
