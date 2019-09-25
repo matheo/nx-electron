@@ -22,10 +22,12 @@ export function init() {
     if (environment.production) {
       const ngapp = express();
       ngapp.use(express.static(resolve(__dirname, 'angular')));
-      body = ngapp.listen(4220, 'localhost');
+      body = ngapp.listen(4220, 'localhost', () => {
+        win.loadURL('http://localhost:4220');
+      });
+    } else {
+      win.loadURL('http://localhost:4220');
     }
-
-    win.loadURL('http://localhost:4220');
 
     // Prevent new windows
     win.webContents.on('new-window', (event: any, url: string) => {

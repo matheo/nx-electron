@@ -1,0 +1,58 @@
+{
+  "name": "nx-electron",
+  "description": "NxElectron",
+  "version": "0.0.1",
+  "author": {
+    "name": "Mateo Tibaquira",
+    "email": "me@matheo.co",
+    "url": "http://matheo.co/"
+  },
+  "main": "./main.js",
+  "build": {
+    "productName": "NxElectron",
+    "appId": "co.matheo.electron",
+    "copyright": "Copyright © 2019 Mateo Tibaquira",
+    "icon": "build/icons",
+    "directories": {
+      "output": "../../../bundles"
+    },
+    "mac": {
+      "category": "public.app-category.productivity",
+      "artifactName": "${productName}-${version}-${arch}.${ext}",
+      "target": [
+        "dmg"
+      ]
+    },
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "perMachine": true,
+      "installerIcon": "build/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "dir"
+      ],
+      "icon": "build/icons/32x32.png."
+    }
+  },
+  "files": [
+    "**/*",
+    "build/icon.*",
+    "build/icons"
+  ],
+  "dependencies": {
+    "tslib": "^1.9.0"
+  },
+  "devDependencies": {
+    "electron": "6.0.10"
+  }
+}

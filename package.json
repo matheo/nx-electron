@@ -14,11 +14,17 @@
     "desktop:start:prod": "run-p -l 'desktop:serve --prod' 'desktop:electron:build --prod' desktop:start:post",
     "desktop:serve": "ng serve desktop-angular --port 4220",
     "desktop:serve:wait": "wait-on http-get://localhost:4220/",
+    "desktop:build": "yarn ng build desktop-angular",
+    "desktop:build:analyze": "webpack-bundle-analyzer -m static dist/apps/desktop/angular/stats-es2015.json",
     "desktop:electron:build": "run-s desktop:electron:build:app desktop:electron:build:preload",
     "desktop:electron:build:app": "ng build desktop-electron",
     "desktop:electron:build:preload": "tsc -p apps/desktop/electron/tsconfig.preload.json",
     "desktop:electron:serve": "electron .",
     "desktop:electron:dist": "electron ./dist/apps/desktop",
+    "desktop:dist": "run-s desktop:dist:app desktop:dist:install desktop:dist:package",
+    "desktop:dist:app": "run-s -l 'desktop:electron:build:app --prod' 'desktop:electron:build:preload' 'desktop:build --prod --stats-json --base-href ./'",
+    "desktop:dist:install": "yarn --cwd ./dist/apps/desktop install --production --no-lockfile --silent",
+    "desktop:dist:package": "electron-builder --project ./dist/apps/desktop",
     "ng": "ng",
     "nx": "nx",
     "build": "ng build",
@@ -72,6 +78,7 @@
     "cypress": "3.4.1",
     "dotenv": "6.2.0",
     "electron": "6.0.10",
+    "electron-builder": "^21.2.0",
     "eslint": "6.1.0",
     "express": "^4.17.1",
     "jest": "24.1.0",
@@ -82,6 +89,7 @@
     "ts-node": "~7.0.0",
     "tslint": "~5.11.0",
     "typescript": "~3.5.3",
-    "wait-on": "^3.3.0"
+    "wait-on": "^3.3.0",
+    "webpack-bundle-analyzer": "^3.5.1"
   }
 }

@@ -124,7 +124,6 @@
       "sourceRoot": "apps/desktop/electron/src",
       "projectType": "application",
       "prefix": "desktop-electron",
-      "schematics": {},
       "architect": {
         "build": {
           "builder": "@nrwl/node:build",
@@ -132,7 +131,13 @@
             "outputPath": "dist/apps/desktop",
             "main": "apps/desktop/electron/src/main.ts",
             "tsConfig": "apps/desktop/electron/tsconfig.app.json",
-            "assets": ["apps/desktop/electron/src/assets"]
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "apps/desktop/electron/src/assets/",
+                "output": ""
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -144,7 +149,8 @@
                   "replace": "apps/desktop/electron/src/environments/environment.ts",
                   "with": "apps/desktop/electron/src/environments/environment.prod.ts"
                 }
-              ]
+              ],
+              "externalDependencies": ["electron"]
             }
           }
         },
