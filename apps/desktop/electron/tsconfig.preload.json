@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src/app/preload",
+    "outDir": "../../../dist/apps/desktop/preload",
+    "module": "commonjs",
+    "sourceMap": false,
+    "types": ["node"]
+  },
+  "exclude": ["**/*.spec.ts"],
+  "include": ["src/app/preload/preload.ts"]
+}
