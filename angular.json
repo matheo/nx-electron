@@ -118,6 +118,60 @@
           }
         }
       }
+    },
+    "desktop-electron": {
+      "root": "apps/desktop/electron",
+      "sourceRoot": "apps/desktop/electron/src",
+      "projectType": "application",
+      "prefix": "desktop-electron",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@nrwl/node:build",
+          "options": {
+            "outputPath": "dist/apps/desktop/electron",
+            "main": "apps/desktop/electron/src/main.ts",
+            "tsConfig": "apps/desktop/electron/tsconfig.app.json",
+            "assets": ["apps/desktop/electron/src/assets"]
+          },
+          "configurations": {
+            "production": {
+              "optimization": true,
+              "extractLicenses": true,
+              "inspect": false,
+              "fileReplacements": [
+                {
+                  "replace": "apps/desktop/electron/src/environments/environment.ts",
+                  "with": "apps/desktop/electron/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@nrwl/node:execute",
+          "options": {
+            "buildTarget": "desktop-electron:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/desktop/electron/tsconfig.app.json",
+              "apps/desktop/electron/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/desktop/electron/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/desktop/electron/jest.config.js",
+            "tsConfig": "apps/desktop/electron/tsconfig.spec.json"
+          }
+        }
+      }
     }
   },
   "cli": {

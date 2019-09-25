@@ -12,7 +12,14 @@
       "tags": []
     },
     "desktop-angular": {
-      "tags": ["desktop"]
+      "tags": [
+        "desktop"
+      ]
+    },
+    "desktop-electron": {
+      "tags": [
+        "desktop"
+      ]
     }
   }
 }
