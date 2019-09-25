@@ -129,7 +129,7 @@
         "build": {
           "builder": "@nrwl/node:build",
           "options": {
-            "outputPath": "dist/apps/desktop/electron",
+            "outputPath": "dist/apps/desktop",
             "main": "apps/desktop/electron/src/main.ts",
             "tsConfig": "apps/desktop/electron/tsconfig.app.json",
             "assets": ["apps/desktop/electron/src/assets"]
