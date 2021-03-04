@@ -1,5 +1,6 @@
 module.exports = {
-  name: 'desktop-electron',
-  preset: '../../../jest.config.js',
-  coverageDirectory: '../../../coverage/apps/desktop/electron'
+  preset: '../../../jest.preset.js',
+  coverageDirectory: '../../../coverage/apps/desktop/electron',
+  globals: { 'ts-jest': { tsConfig: '<rootDir>/tsconfig.spec.json' } },
+  displayName: 'desktop-electron',
 };

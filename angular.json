@@ -20,7 +20,9 @@
               "apps/desktop/angular/src/favicon.ico",
               "apps/desktop/angular/src/assets"
             ],
-            "styles": ["apps/desktop/angular/src/styles.scss"],
+            "styles": [
+              "apps/desktop/angular/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -51,7 +53,10 @@
                 }
               ]
             }
-          }
+          },
+          "outputs": [
+            "dist/apps/desktop/angular"
+          ]
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
@@ -77,16 +82,21 @@
               "apps/desktop/angular/tsconfig.app.json",
               "apps/desktop/angular/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/desktop/angular/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/desktop/angular/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/desktop/angular/jest.config.js",
-            "tsConfig": "apps/desktop/angular/tsconfig.spec.json",
-            "setupFile": "apps/desktop/angular/src/test-setup.ts"
-          }
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/apps/desktop/angular"
+          ]
         }
       }
     },
@@ -111,8 +121,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/desktop/angular-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/desktop/angular-e2e/**"]
+            "tsConfig": [
+              "apps/desktop/angular-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/desktop/angular-e2e/**/*"
+            ]
           }
         }
       }
@@ -135,7 +150,8 @@
                 "input": "apps/desktop/electron/src/assets/",
                 "output": ""
               }
-            ]
+            ],
+            "buildLibsFromSource": true
           },
           "configurations": {
             "production": {
@@ -148,9 +164,14 @@
                   "with": "apps/desktop/electron/src/environments/environment.prod.ts"
                 }
               ],
-              "externalDependencies": ["electron"]
+              "externalDependencies": [
+                "electron"
+              ]
             }
-          }
+          },
+          "outputs": [
+            "dist/apps/desktop"
+          ]
         },
         "serve": {
           "builder": "@nrwl/node:execute",
@@ -165,15 +186,21 @@
               "apps/desktop/electron/tsconfig.app.json",
               "apps/desktop/electron/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/desktop/electron/**"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/desktop/electron/**/*"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "apps/desktop/electron/jest.config.js",
-            "tsConfig": "apps/desktop/electron/tsconfig.spec.json"
-          }
+            "passWithNoTests": true
+          },
+          "outputs": [
+            "coverage/apps/desktop/electron"
+          ]
         }
       }
     }
