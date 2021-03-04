@@ -15,7 +15,7 @@
             "main": "apps/desktop/angular/src/main.ts",
             "polyfills": "apps/desktop/angular/src/polyfills.ts",
             "tsConfig": "apps/desktop/angular/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "apps/desktop/angular/src/favicon.ico",
               "apps/desktop/angular/src/assets"
@@ -34,9 +34,7 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
