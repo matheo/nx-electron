@@ -59,7 +59,7 @@
     "@angular/platform-browser-dynamic": "11.2.4",
     "@angular/router": "11.2.4",
     "@nrwl/angular": "11.4.0",
-    "core-js": "^2.5.4",
+    "core-js": "^3.9.1",
     "rxjs": "6.6.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
@@ -80,8 +80,8 @@
     "codelyzer": "^6.0.0",
     "cypress": "^3.8.2",
     "dotenv": "6.2.0",
-    "electron": "6.0.10",
-    "electron-builder": "^21.2.0",
+    "electron": "12.0.0",
+    "electron-builder": "^22.10.5",
     "eslint": "6.8.0",
     "eslint-plugin-cypress": "^2.10.3",
     "express": "^4.17.1",
@@ -93,7 +93,7 @@
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
     "typescript": "4.1.5",
-    "wait-on": "^3.3.0",
-    "webpack-bundle-analyzer": "^3.5.1"
+    "wait-on": "^5.2.1",
+    "webpack-bundle-analyzer": "^4.4.0"
   }
 }
